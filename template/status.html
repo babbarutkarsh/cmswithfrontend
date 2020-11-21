@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status</title>
+    <style>
+        th,td{
+            border: 1px solid black;
+        }
+
+    </style>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        </head>
+    <script>
+        console.log("You ");
+        $("#texteditor").click(function(){
+        TextEntered = $("#texteditor").val();
+        console.log("ck")
+        print(TextEntered)
+        // You can remove the below line, after debugging!
+        console.log("You have typed the following ",TextEntered);
+        // You can remove the above line, after debugging!
+        data = {
+     'TextEntered':TextEntered, 'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+               };
+        $.ajax({
+                type:'POST',
+                url:'write_view',
+                datatype: 'JSON',
+                data: data,
+                success: Successfully_Received
+       })
+     })
+     
+     function Successfully_Received(data, textStatus, jqXHR){
+       console.log("Successfully received by View and acknowledged");
+     }
+     </script>
+</head>
+<body>
+    <h5>Request details </h5>
+    {% if req %}   
+    
+    <table>
+        <th>email</th>
+        <th>clubname</th>
+        <th>contact</th>
+        <th>request type</th>
+        <th>request purpose</th>       
+        <th>Allotment Status</th>
+        <!-- <th>Management Comments</th> -->
+        {% for r in req %}
+  <tr>
+      <td>{{r.email}}</td>
+      <td>{{r.ClubName}}</td>
+      <td>{{r.Contact}}</td>
+      <td>{{r.req_type}}</td>
+      <td>{{r.req_purpose}}</td>
+      <td>
+        {% if perms.dash.change_form  %}
+            {% if r.alloted == 0 %}
+            <a href="{% url 'student_approve' user_id=r.id %} " class="btn btn-success" >Approve</a>
+            <a class="btn btn-danger" href="{% url 'student_disapprove' user_id=r.id %}" >Disapprove</a>
+            {% elif r.alloted == 1 %}
+            <button class="btn btn-warning"  disabled="disabled" data-toggle="modal" data-target="#reply_modal">Approved</button>
+            <a class="btn btn-danger" href="{% url 'student_disapprove' user_id=r.id %}" >Disapprove</a>
+            {% elif r.alloted == 0 %}
+            <button class="btn btn-warning" disabled="disabled" data-toggle="modal" data-target="#reply_modal">Queued</button>
+            <a href="{% url 'student_approve' user_id=r.id %} " class="btn btn-success" >Approve</a>
+            {% else %}
+            <button class="btn btn-danger" data-toggle="modal" disabled="disabled" data-target="#reply_modal">Disapproved</button>
+            <a href="{% url 'student_reset' user_id=r.id %} " class="btn btn-success" >Reset</a>
+            {% endif %}
+            {% else %}
+                {% if r.alloted == 0 %}
+                    <h3>queued</h3>
+                {% elif r.alloted == 1 %}
+                    <h3>alloted</h3>
+                {% else %}
+                    <h3>declined</h3>
+                {% endif %}
+        {% endif %} 
+    </td>
+        <!-- <td>
+            {% if perms.dash.change_form  %}
+            <a href="{% url 'showmess' user_id=r.id %} " >write</a>
+                {{mess}}
+            {% else %}
+                {{r.Management_Comments}}
+            {% endif %}
+
+        </td> -->
+  </tr>
+{% endfor %}
+</table>
+    {% else %}
+        <h1>No data</h1>
+    {% endif %}
+</table>        
+</body>
+</html>
