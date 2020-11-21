@@ -2,13 +2,13 @@
 
 {% block content %}
 
-   <div class="login">
+   <div class="login shift">
     <h2>Enter your Credentials:</h2>
     <form action="login" method="post">
         {% csrf_token %}
         <input type="text" name="username" placeholder="username"><br>
         <input type="password" name="password" placeholder="password"><br>
-        <input type="Submit" id="submit">
+        <input type="Submit" id="submit" class="submit">
     </form>
 
 

@@ -1,49 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status</title>
-    <style>
-        th,td{
-            border: 1px solid black;
-        }
+<script>
+    window.setInterval('refresh()', 2000);
 
-    </style>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        </head>
-    <script>
-        console.log("You ");
-        $("#texteditor").click(function(){
-        TextEntered = $("#texteditor").val();
-        console.log("ck")
-        print(TextEntered)
-        // You can remove the below line, after debugging!
-        console.log("You have typed the following ",TextEntered);
-        // You can remove the above line, after debugging!
-        data = {
-     'TextEntered':TextEntered, 'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
-               };
-        $.ajax({
-                type:'POST',
-                url:'write_view',
-                datatype: 'JSON',
-                data: data,
-                success: Successfully_Received
-       })
-     })
-     
-     function Successfully_Received(data, textStatus, jqXHR){
-       console.log("Successfully received by View and acknowledged");
-     }
-     </script>
-</head>
-<body>
-    <h5>Request details </h5>
+    // Refresh or reload page.
+    function refresh() {
+        window .location.reload();
+    }
+</script>
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+    <h5>------Request details----- </h5>
     {% if req %}   
     
-    <table>
+    <table id="table">
         <th>email</th>
         <th>clubname</th>
         <th>contact</th>
@@ -83,15 +53,7 @@
                 {% endif %}
         {% endif %} 
     </td>
-        <!-- <td>
-            {% if perms.dash.change_form  %}
-            <a href="{% url 'showmess' user_id=r.id %} " >write</a>
-                {{mess}}
-            {% else %}
-                {{r.Management_Comments}}
-            {% endif %}
-
-        </td> -->
+       
   </tr>
 {% endfor %}
 </table>
@@ -99,5 +61,4 @@
         <h1>No data</h1>
     {% endif %}
 </table>        
-</body>
-</html>
+{% endblock %}
