@@ -38,7 +38,10 @@
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
-
+.responsive {
+  width: 100%;
+  height: auto;
+}
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
@@ -103,9 +106,8 @@
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.6/lib/darkmode-js.min.js"></script>
 
           <script>
-
           const options ={
-            bottom: '32px', // default: '32px'
+            bottom: '45px', // default: '32px'
             right: '32px', // default: '32px'
             left: 'unset', // default: 'unset'
             time: '0.3s', // default: '0.3s'
@@ -124,10 +126,9 @@
             //   new Darkmode().showWidget();
             // }
             // window.addEventListener('load', addDarkmodeWidget);
-
-
-
           </script>
+
+
         <footer class="footer bg-dark text-white foot fix">
             <div class="text-mid">
             <p class="float-right "><a href="#">Back to top</a></p>
