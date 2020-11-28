@@ -1,8 +1,8 @@
-
 {% extends 'base.html' %}
-
+{% load static %}
+{% static "img" as baseUrl %}
 {% block content %}
-
+<div id="ind darkmode-ignore">
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -42,29 +42,41 @@
         </a>
     </div>
     <div.container>
-        <div class="container-fluid my-5">
+        <div class="container-fluid my-5 lft  bgtext">
 
             <!-- Three columns of text below the carousel -->
             <div class="row">
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/static/img/funding.jpg">
+                <div class="col-lg-4 ">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{% static 'img/funding.jpg' %}">
                     <h2>Funding</h2>
                     <p>Want to apply for any Funding Request?, No need to Go one office to Other, Just Click Here and
                         Apply.</p>
+                    {% if user.is_authenticated %}
                     <p><a class="btn btn-secondary" href={% url 'Form' %} role="button">Go! &raquo;</a></p>
+                    {% else %}
+                    <p><a class="btn btn-secondary" href={% url 'login' %} role="button">Login &raquo;</a></p>   
+                    {% endif %}
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/static/img/permission1.jpg">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{% static 'img/permission1.jpg' %}">
                     <h2>Permission</h2>
                     <p>Want to apply for any Permission?, No need to Waste Paper, Just Click Here to Apply and Join the league to Save Environment.</p>
+                    {% if user.is_authenticated %}
                     <p><a class="btn btn-secondary" href={% url 'Form' %} role="button">Go! &raquo;</a></p>
+                    {% else %}
+                    <p><a class="btn btn-secondary" href={% url 'login' %} role="button">Login &raquo;</a></p>   
+                    {% endif %}
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/static/img/status.jpg">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{% static 'img/status.jpg' %}">
                     <h2>Status</h2>
                     <p>Want to know the Status of your Application? No need to Waste your precious Time, Just Click Here
                         and check the Status.</p>
-                    <p><a class="btn btn-secondary" href={% url 'Status' %} role="button">Check Status &raquo;</a></p>
+                    {% if user.is_authenticated %}
+                    <p><a class="" href={% url 'Status' %} role="button">Check Status &raquo;</a></p>
+                    {% else %}
+                    <p><a class="btn btn-secondary" href={% url 'login' %} role="button">Login &raquo;</a></p>   
+                    {% endif %}
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
     </div.container>
@@ -80,4 +92,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+</div>
 {% endblock %}

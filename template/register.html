@@ -1,7 +1,13 @@
+<div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/54.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 {% extends 'base.html' %}
-
 {% block content %}
-    
+<style>
+    #rht{
+        margin-left: 10%;
+    }
+</style>
+<br> 
+<div id="rht" class="glow"><h2>Register user here:</h2></div>
     <form action="register" method="post" class="shift">
         {% csrf_token %}
         <h2>Enter your details:</h2>
@@ -21,3 +27,4 @@
         {% endfor %}
     </div>
 {% endblock %}
+</div>

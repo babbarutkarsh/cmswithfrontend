@@ -1,7 +1,8 @@
+<div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/22.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
+<h2>Login Page</h2>
    <div class="login shift">
     <h2>Enter your Credentials:</h2>
     <form action="login" method="post">
@@ -18,5 +19,5 @@
             {% endfor %}
     </div>
    </div>
-   
+   </div>
 {% endblock %}

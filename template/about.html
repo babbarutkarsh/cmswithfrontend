@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static%}
+{% static "img" as baseUrl %}
 {% block content %}
-    
     <div class="container my-4">
 
-        <img width="1300" src="/static/img/about2.png" class="responsive">
+        <img width="1300" src="{% static 'img/about2.png' %}" alt="My Image" class="responsive">
         <p style="font-size: 2.5ch;">This is an online portal for the Thapar Insititute of Engineering and Technology,
             Patiala, which will help
             the various Socities/Clubs/Chapters and College Management Committee in the approval of different
@@ -15,7 +15,7 @@
             Rooms for the event, etc.).<br><br>
             So, in order to get the permission we were earlier required to write an application mentioning all the
             necessary details. Further we were required to take that application from one office to another to get it
-            signed. But many a times, the authorities were preoccupied which eventually leads to a wastage of time.<br>
+            signed. But many a times, the authorities were preoccupied which eventually style="font-size: 2.5ch;s to a wastage of time.<br>
 
             Hence we have developed this portal on which any Society/Club/Chapter can register and can initiate any
             Permission or Funding request to the concerned authorities. After succesful inititation of the request, it
@@ -32,15 +32,15 @@
         <br>
         <br>
         <div class="row featurette d-flex justify-content-center allign-items-center">
-            <div class="col-md-7 order-md-1">
+            <div class="col-md-7 order-md-1 bgtext">
                 <h2 class="featurette-heading">Rohan Goyal <span class="text-muted"></span></h2>
-                <p class="lead">Email- rgoyal_be18@thapar.edu <br>
+                <p class="style="font-size: 2.5ch;">Email- rgoyal_be18@thapar.edu <br>
                     Github- goelrohan94 <br>
                     Linkedln- https://www.linkedin.com/in/rohan-goyal-2924ab172/ </p>
             </div>
             <div class="col-md-5 order-md-2">
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200"
-                    height="200" src="/static/img/Rohan.jpg">
+                    height="200" src="{% static 'img/rohan.jpg' %}">
                 <title>Rohan Goyal</title>
             </div>
         </div>
@@ -48,15 +48,15 @@
         <br>
         <br>
         <div class="row featurette d-flex justify-content-center allign-items-center">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Utkarsh Babbar <span class="text-muted"></span></h2>
-                <p class="lead">Email- babbarutkarsh66@gmail.com <br>
+            <div class="col-md-7 order-md-2 bgtext">
+                <h2 class="featurette-heading">Utkarsh Babbar <span class="text-success"></span></h2>
+                <p class="style="font-size: 2.5ch;">Email- babbarutkarsh66@gmail.com <br>
                     Github- babbarutkarsh <br>
                     Linkedln- https://www.linkedin.com/in/utkarsh-babbar-3a931a167/</p>
             </div>
             <div class="col-md-5 order-md-1">
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200"
-                    height="200" src="utkarsh.png">
+                    height="200" src="{% static 'img/babbar.jpg' %}">
                 <title>Utkarsh Babbar</title>
             </div>
         </div>
@@ -64,15 +64,15 @@
         <br>
         <br>
         <div class="row featurette d-flex justify-content-center allign-items-center">
-            <div class="col-md-7 order-md-1">
-                <h2 class="featurette-heading">Jatin Aggarwal <span class="text-muted"></span></h2>
-                <p class="lead">Email- jatinagg1@gmail.com <br>
+            <div class="col-md-7 order-md-1 bgtext">
+                <h2 class="featurette-heading">Jatin Aggarwal <span class="text-success"></span></h2>
+                <p class="style="font-size: 2.5ch;">Email- jatinagg1@gmail.com <br>
                     Github- jatinagg1 <br>
                     Linkedln- https://www.linkedin.com/in/jatin-a-21222712b/</p>
             </div>
-            <div class="col-md-5 order-md-2">
+            <div class="col-md-5 order-md-2 ">
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200"
-                    height="200" src="/static/img/jatin.jpg">
+                    height="200" src="{% static 'img/jatin.jpg' %}">
                 <title>Jatin Aggarwal</title>
             </div>
         </div>
@@ -80,15 +80,15 @@
         <br>
         <br>
         <div class="row featurette d-flex justify-content-center allign-items-center">
-            <div class="col-md-7 order-md-2">
+            <div class="col-md-7 order-md-2 bgtext">
                 <h2 class="featurette-heading">Sudhanshu Mahajan <span class="text-muted"></span></h2>
-                <p class="lead">Email- mahajansudhanshu199@gmail.com <br>
+                <p class="style="font-size: 2.5ch;">Email- mahajansudhanshu199@gmail.com <br>
                     Github- sudhanshu1999 <br>
                     Linkedln- https://www.linkedin.com/in/sudhanshu-mahajan-096523172</p>
             </div>
             <div class="col-md-5 order-md-1">
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200"
-                    height="200" src="/static/img/sudhanshu.jpg">
+                    height="200" src="{% static 'img/sudhanshu.jpg' %}">
                 <title>Sudhanshu Mahajan</title>
             </div>
         </div>
@@ -96,15 +96,15 @@
         <br>
         <br>
         <div class="row featurette d-flex justify-content-center allign-items-center">
-            <div class="col-md-7 order-md-1">
+            <div class="col-md-7 order-md-1 bgtext">
                 <h2 class="featurette-heading">Tarun Walia <span class="text-muted">.</span></h2>
-                <p class="lead">
-                <p class="lead">Email- twalia_be18@thapar.edu <br>
+                <p class="style="font-size: 2.5ch;">
+                <p class="style="font-size: 2.5ch;">Email- twalia_be18@thapar.edu <br>
                     Github- tarunwalia1999</p>
             </div>
             <div class="col-md-5 order-md-2">
                 <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200"
-                    height="200" src="/static/img/tarun.jpg">
+                    height="200" src="{% static 'img/tarun.jpg' %}">
                 <title>Tarun Walia</title>
             </div>
         </div>
